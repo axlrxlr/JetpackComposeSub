@@ -19,7 +19,6 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -33,20 +32,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.zIndex
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
-import com.mizu.jetpackcomposesub.MainActivity
-import com.mizu.jetpackcomposesub.R
-import com.mizu.jetpackcomposesub.api.MainPicture
 import com.mizu.jetpackcomposesub.api.Node
 import com.mizu.jetpackcomposesub.database.FavoriteViewModel
-import com.mizu.jetpackcomposesub.ui.theme.JetpackComposeSubTheme
 
 @Composable
 fun AnimeListItem(
@@ -149,25 +140,3 @@ fun AnimeListItem(
         }
     }
 }
-
-@Composable
-@Preview(showBackground = true)
-fun AnimeListItemPreview() {
-    JetpackComposeSubTheme {
-        AnimeListItem(Node(id = 1, title = "Judul Anime", mainPicture = MainPicture("","")), navController = rememberNavController(), favoriteViewModel = viewModel(), componentActivity = ComponentActivity())
-    }
-}
-
-val AnimeDummy = listOf(
-    DummyData(1, R.drawable.oshinoko, "Oshi No Ko"),
-    DummyData(2, R.drawable.oshinoko, "Oshi No Ko"),
-    DummyData(3, R.drawable.oshinoko, "Oshi No Ko"),
-    DummyData(4, R.drawable.oshinoko, "Oshi No Ko"),
-    DummyData(5, R.drawable.oshinoko, "Oshi No Ko"),
-)
-
-data class DummyData(
-    val id : Long,
-    val image : Int,
-    val title : String,
-)
