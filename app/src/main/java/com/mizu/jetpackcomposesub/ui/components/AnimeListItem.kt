@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.mizu.jetpackcomposesub.api.Node
+import com.mizu.jetpackcomposesub.database.FavoriteAnime
 import com.mizu.jetpackcomposesub.database.FavoriteViewModel
 
 @Composable
@@ -136,6 +137,85 @@ fun AnimeListItem(
                     contentDescription = "Favorite Button",
                     tint = tint
                 )
+            }
+        }
+    }
+}
+
+@Composable
+fun FavoriteListItem(
+    data: FavoriteAnime,
+    modifier: Modifier = Modifier,
+    navController: NavController,
+    favoriteViewModel: FavoriteViewModel,
+    componentActivity: ComponentActivity
+){
+
+    var liked:Boolean by remember { mutableStateOf(false) }
+    favoriteViewModel.getFavoriteAnime()?.observe(componentActivity){
+        liked = it.any{e-> e.id == data.id }
+    }
+
+    Card(
+        shape = RoundedCornerShape(15.dp),
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+            .clickable {
+                navController.navigate("detailAnime/${data.id}")
+            },
+        elevation = CardDefaults.cardElevation()
+    ) {
+        Box(modifier = Modifier
+            .height(200.dp)
+            .clickable {
+                navController.navigate("detailAnime/${data.id}")
+            }
+        ){
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth(),
+            ) {
+                BoxWithConstraints {
+                    val aspectRatio = maxWidth / maxHeight
+                    val painter = rememberAsyncImagePainter(
+                        data.imageUrl,
+                    )
+                    Image(
+                        painter = painter,
+                        contentDescription = data.title,
+                        contentScale = if (aspectRatio > 1) {
+                            ContentScale.FillWidth
+                        } else {
+                            ContentScale.FillHeight
+                        },
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .aspectRatio(aspectRatio)
+                    )
+                }
+            }
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp)
+                    .background(
+                        Brush.verticalGradient(
+                            listOf(Color.Transparent, Color.Black),
+                            startY = 0f,
+                            endY = 600f
+                        )
+                    )
+            )
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .padding(12.dp)
+                .clickable {
+                    navController.navigate("detailAnime/${data.id}")
+                },
+                contentAlignment = Alignment.BottomStart
+            ){
+                Text(text = data.title, style = TextStyle(color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.SemiBold))
             }
         }
     }

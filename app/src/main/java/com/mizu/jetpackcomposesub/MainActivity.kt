@@ -42,6 +42,9 @@ class MainActivity : ComponentActivity() {
                         composable("profile"){
                             MyProfile(navController = navController)
                         }
+                        composable("favorite"){
+                            MyFavoriteList(navController = navController, favoriteViewModel = favoriteViewModel, componentActivity = componentActivity)
+                        }
                         composable("detailAnime/{id}", arguments = listOf(navArgument("id"){type= NavType.IntType})){
                             navBackStackEntry -> MyAnimeDetail(id = navBackStackEntry.arguments?.getInt("id")!!, navController = navController)
                         }

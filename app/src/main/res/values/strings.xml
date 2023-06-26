@@ -5,5 +5,7 @@
     <string name="my_profile">My Profile</string>
     <string name="search_for_anime">Search for anime</string>
     <string name="search_anime">Search Anime..</string>
+    <string name="empty_list">Your favorite list is empty.</string>
+    <string name="your_favorite">Your Favorite</string>
 
 </resources>

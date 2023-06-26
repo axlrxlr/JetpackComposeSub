@@ -93,11 +93,10 @@ fun MyAnimeList(
             val searchKey = animeViewModel.searchQuery
             item {
                 Text(
-                    modifier = modifier
-                        .padding(start = 10.dp, top = 10.dp),
+                    modifier = Modifier.padding(start = 10.dp),
                     text = if(searchKey.isNotEmpty()) "Anime by title '$searchKey'" else "Currently Airing",
                     fontWeight = FontWeight.Bold,
-                    fontSize = 24.sp
+                    fontSize = 24.sp,
                 )
             }
             itemsIndexed(animeViewModel.animeListItem){ _, item ->
@@ -129,9 +128,9 @@ fun TopBar(
         },
         actions = {
             IconButton(onClick = {
-                navController.navigate("profile")
+                navController.navigate("favorite")
             }) {
-                Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Profil")
+                Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Favorit")
             }
             IconButton(onClick = {
                 navController.navigate("profile")
