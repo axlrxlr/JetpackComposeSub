@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
                             MyFavoriteList(navController = navController, favoriteViewModel = favoriteViewModel, componentActivity = componentActivity)
                         }
                         composable("detailAnime/{id}", arguments = listOf(navArgument("id"){type= NavType.IntType})){
-                            navBackStackEntry -> MyAnimeDetail(id = navBackStackEntry.arguments?.getInt("id")!!, navController = navController)
+                            navBackStackEntry -> MyAnimeDetail(id = navBackStackEntry.arguments?.getInt("id")!!, navController = navController, favoriteViewModel = favoriteViewModel, componentActivity = componentActivity)
                         }
                     }
 

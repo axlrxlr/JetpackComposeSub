@@ -31,6 +31,7 @@ class AnimeViewModel(): ViewModel() {
             try {
                 val animeList = apiService.getAnimeList()
                 animeListItem = animeList.data
+                searchQuery = ""
             } catch (e: Exception){
                 errorMessage = e.message.toString()
             }
@@ -44,6 +45,7 @@ class AnimeViewModel(): ViewModel() {
                 animeListItem = animeList.data
                 searchQuery = query
             } catch (e: Exception){
+                searchQuery = query
                 errorMessage = e.message.toString()
                 Log.d("error", errorMessage)
             }

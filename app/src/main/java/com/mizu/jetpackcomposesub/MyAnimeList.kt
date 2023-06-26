@@ -29,13 +29,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.mizu.jetpackcomposesub.database.FavoriteViewModel
 import com.mizu.jetpackcomposesub.ui.components.AnimeListItem
-import com.mizu.jetpackcomposesub.ui.theme.JetpackComposeSubTheme
 import com.mizu.jetpackcomposesub.viewmodel.AnimeViewModel
 
 
@@ -61,7 +59,7 @@ fun MyAnimeList(
                     },
                     onSearch = { text ->
                         if(text.isEmpty()){
-                            searchQuery = text
+                            searchQuery = ""
                             animeViewModel.getAnimeList()
                         }else{
                             searchQuery = text
@@ -92,9 +90,10 @@ fun MyAnimeList(
             }
             val searchKey = animeViewModel.searchQuery
             item {
+                val headerString = "Anime by title : $searchKey"
                 Text(
                     modifier = Modifier.padding(start = 10.dp),
-                    text = if(searchKey.isNotEmpty()) "Anime by title '$searchKey'" else "Currently Airing",
+                    text = if(searchKey.isNotEmpty()) headerString else "Currently Airing",
                     fontWeight = FontWeight.Bold,
                     fontSize = 24.sp,
                 )
@@ -142,12 +141,4 @@ fun TopBar(
         colors = topAppBarColors
 
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun SearchBarPreview() {
-    JetpackComposeSubTheme {
-
-    }
 }
