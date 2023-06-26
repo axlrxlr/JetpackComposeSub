@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">JetpackComposeSub</string>
+    <string name="my_anime_list">My Anime List</string>
+    <string name="anime_details">Anime Details</string>
+    <string name="my_profile">My Profile</string>
+    <string name="search_for_anime">Search for anime</string>
+    <string name="search_anime">Search Anime..</string>
+
+</resources>
