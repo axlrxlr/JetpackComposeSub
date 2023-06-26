@@ -18,6 +18,7 @@ import java.lang.Exception
 class AnimeViewModel(): ViewModel() {
     var animeListItem : List<DataItem> by mutableStateOf(listOf())
     var animeDetailItem : DetailResponse by mutableStateOf(emptyDetail)
+    var searchQuery: String by mutableStateOf("")
     var errorMessage: String by mutableStateOf("")
 
     init {
@@ -41,6 +42,7 @@ class AnimeViewModel(): ViewModel() {
             try {
                 val animeList = apiService.searchAnime(query)
                 animeListItem = animeList.data
+                searchQuery = query
             } catch (e: Exception){
                 errorMessage = e.message.toString()
                 Log.d("error", errorMessage)

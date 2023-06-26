@@ -35,10 +35,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    animeViewModel.getAnimeList()
                     NavHost(navController = navController, startDestination = "listAnime"){
                         composable("listAnime"){
-                            MyAnimeList(animeList = animeViewModel.animeListItem, navController = navController, favoriteViewModel = favoriteViewModel, componentActivity = componentActivity, animeViewModel = animeViewModel)
+                            MyAnimeList(navController = navController, favoriteViewModel = favoriteViewModel, componentActivity = componentActivity, animeViewModel = animeViewModel)
                         }
                         composable("profile"){
                             MyProfile(navController = navController)
