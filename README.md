@@ -20,7 +20,7 @@ This my first Jetpack Compose project I made for my assignment. The name of the 
 
 
 ## External Resource
-- [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2/)
+- [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2)
 
 ## Project File Requirement
 1. Android Studio Electric Eel // 2022.2.1
