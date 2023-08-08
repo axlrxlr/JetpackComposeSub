@@ -20,5 +20,5 @@ This my first Jetpack Compose project I made for my assignment. The name of the 
 
 
 ## Project File Requirement
-1. Android Studio Electric Eel // 2022.2.1
+1. Android Studio Flamingo // 2022.2.1
 2. Android Device or Android Emulator
