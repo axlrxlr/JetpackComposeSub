@@ -19,9 +19,6 @@ This my first Jetpack Compose project I made for my assignment. The name of the 
 <img src="https://github.com/axlrxlr/JetpackComposeSub/assets/125959065/9906c91d-ac6f-4cac-a3ac-0503ac7e0b10" width="200" alt="Favorite List Page">
 
 
-## External Resource
-- [MyAnimeList API](https://myanimelist.net/apiconfig)
-
 ## Project File Requirement
 1. Android Studio Electric Eel // 2022.2.1
 2. Android Device or Android Emulator
